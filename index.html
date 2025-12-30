@@ -95,14 +95,32 @@
             </div>
         </section>
 
-        <section class="mb-10 px-2">
-            <h2 class="text-xl font-bold mb-4 italic">Request Materials</h2>
-            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
-                <p class="text-xs text-slate-500 mb-4 font-medium italic text-center">Missing a note? Tell Pramangsu below:</p>
-                <textarea class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-4 text-sm outline-none focus:border-blue-500 transition-all h-28" placeholder="Which year's paper or chapter do you need?"></textarea>
-                <button class="w-full bg-blue-600 text-white font-bold py-4 rounded-2xl mt-4 shadow-lg active:scale-95 transition-transform uppercase text-xs tracking-widest">Submit Request</button>
-            </div>
 <section class="mb-10 px-2">
+    <h2 class="text-xl font-bold mb-4 italic text-slate-800">Request Materials</h2>
+    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+        <p class="text-[10px] text-slate-500 mb-4 font-medium italic text-center">Missing a note? Tell Pramangsu below.</p>
+        
+        <textarea id="userNote" class="w-full bg-slate-50 border-none rounded-2xl p-4 text-sm outline-none focus:ring-2 focus:ring-blue-500 transition-all" rows="3" placeholder="Which year's paper or chapter do you need?"></textarea>
+        
+        <button onclick="sendMaterialRequest()" class="w-full bg-blue-600 text-white font-bold py-4 rounded-2xl mt-4 shadow-lg active:scale-95 transition-all">
+            SUBMIT REQUEST
+        </button>
+    </div>
+</section>
+
+<script>
+function sendMaterialRequest() {
+    const note = document.getElementById('userNote').value;
+    if (note.trim() === "") {
+        alert("Please write something first!");
+        return;
+    }
+    // This opens the user's email app with the request already typed!
+    const mailtoLink = `mailto:pramangsuacharjee883@gmail.com?subject=Material Request&body=${encodeURIComponent(note)}`;
+    window.location.href = mailtoLink;
+}
+</script>
+
     <h2 class="text-xl font-bold mb-4 italic text-slate-800">Maths: Exercise 12.1</h2>
     <div class="bg-white p-6 rounded-3xl shadow-lg border border-slate-100">
         <div class="flex items-center gap-4 mb-4">
