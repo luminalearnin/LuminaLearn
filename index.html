@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video & Photo Editor Portfolio</title>
+    <title>Lumina Learn — Home Tuition for Classes 8th, 9th & 10th</title>
     <style>
-        /* CSS Reset & Variable Setup */
+        :root {
+            --bg-color: #0b132b;
+            --card-bg: #1c2541;
+            --accent-gold: #ffc107;
+            --accent-cyan: #00f2fe;
+            --text-light: #ffffff;
+            --text-muted: #d1d5db;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,43 +21,45 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        :root {
-            --bg-color: #0f0f12;
-            --card-bg: #1a1a22;
-            --accent-color: #6c5ce7;
-            --text-color: #ffffff;
-            --text-secondary: #a0a0ab;
-        }
-
         body {
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-light);
             line-height: 1.6;
         }
 
-        /* Navigation */
+        /* Top Announcement Banner */
+        .announcement {
+            background: linear-gradient(90deg, #ff9900, #ff5500);
+            color: #000;
+            font-weight: 700;
+            text-align: center;
+            padding: 0.6rem 1rem;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Header / Navbar */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 5%;
-            background: rgba(15, 15, 18, 0.9);
+            padding: 1.2rem 5%;
+            background: rgba(11, 19, 43, 0.95);
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.6rem;
+            font-weight: 800;
             letter-spacing: 1px;
-            color: var(--text-color);
+            color: var(--accent-cyan);
         }
 
         .logo span {
-            color: var(--accent-color);
+            color: var(--accent-gold);
         }
 
         .nav-links {
@@ -59,222 +69,239 @@
         }
 
         .nav-links a {
-            color: var(--text-secondary);
+            color: var(--text-muted);
             text-decoration: none;
+            font-weight: 500;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--accent-color);
+            color: var(--accent-gold);
         }
 
         /* Hero Section */
         .hero {
-            min-height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            padding: 4rem 5%;
             text-align: center;
-            padding: 0 1rem;
+            background: radial-gradient(circle at center, #1c2541 0%, #0b132b 100%);
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
+            color: var(--text-light);
         }
 
         .hero h1 span {
-            color: var(--accent-color);
+            color: var(--accent-gold);
         }
 
         .hero p {
-            color: var(--text-secondary);
-            max-width: 600px;
             font-size: 1.2rem;
-            margin-bottom: 2rem;
+            color: var(--text-muted);
+            max-width: 750px;
+            margin: 0 auto 2rem;
         }
 
-        .btn {
+        .cta-btn {
             display: inline-block;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, var(--accent-gold), #ff9100);
+            color: #000;
+            font-weight: 700;
+            padding: 0.9rem 2.2rem;
             border-radius: 30px;
             text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.2s, background 0.3s;
+            font-size: 1.05rem;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            background-color: #5b4bc4;
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
         }
 
         /* Sections General */
         section {
-            padding: 5rem 5%;
+            padding: 4rem 5%;
         }
 
         .section-title {
             text-align: center;
             font-size: 2rem;
-            margin-bottom: 3rem;
-            position: relative;
+            margin-bottom: 2.5rem;
+            color: var(--accent-cyan);
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background: var(--accent-color);
-            margin: 0.5rem auto 0;
-            border-radius: 2px;
-        }
-
-        /* Portfolio Grid */
-        .portfolio-grid {
+        /* Features / Why Choose Us Grid */
+        .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
 
-        .portfolio-card {
+        .card {
             background-color: var(--card-bg);
+            padding: 2rem;
             border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             transition: transform 0.3s;
         }
 
-        .portfolio-card:hover {
+        .card:hover {
             transform: translateY(-5px);
         }
 
-        .portfolio-preview {
-            width: 100%;
-            height: 200px;
-            background-color: #2a2a35;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
+        .card h3 {
+            color: var(--accent-gold);
+            margin-bottom: 0.8rem;
+            font-size: 1.25rem;
         }
 
-        .portfolio-info {
-            padding: 1.5rem;
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
-        .portfolio-info h3 {
-            margin-bottom: 0.5rem;
+        /* Classes & Subjects Section */
+        .details-box {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .portfolio-info p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+        .details-list {
+            list-style: none;
+        }
+
+        .details-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 1.05rem;
+        }
+
+        .details-list li strong {
+            color: var(--accent-gold);
         }
 
         /* Contact Section */
-        .contact {
+        .contact-section {
             text-align: center;
-            background-color: var(--card-bg);
+            background: linear-gradient(180deg, var(--bg-color) 0%, var(--card-bg) 100%);
             border-radius: 16px;
             margin: 2rem 5%;
-            padding: 4rem 2rem;
+            padding: 3.5rem 2rem;
         }
 
-        .contact p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
+        .contact-info {
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
         }
 
         /* Footer */
         footer {
             text-align: center;
             padding: 2rem;
-            color: var(--text-secondary);
+            color: var(--text-muted);
             font-size: 0.9rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Mobile Responsive */
+        /* Responsive Mobile Styling */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .nav-links { gap: 1rem; }
+            .hero h1 { font-size: 2rem; }
+            .nav-links { gap: 1rem; font-size: 0.9rem; }
+            section { padding: 3rem 4%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navbar -->
+    <!-- Top Tagline -->
+    <div class="announcement">
+        NO PHONES. NO DISTRACTIONS. JUST GUARANTEED RESULTS AT HOME!
+    </div>
+
+    <!-- Navigation -->
     <nav>
-        <div class="logo">PORTFOLIO<span>.</span></div>
+        <div class="logo">LUMINA <span>LEARN</span></div>
         <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#why-us">Why Us</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#contact">Book Trial</a></li>
         </ul>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero" id="about">
-        <h1>Crafting <span>Visual Stories</span> & Cinematic Edits</h1>
-        <p>Specializing in video editing, color grading, motion graphics, and photo retouches to elevate your creative vision.</p>
-        <a href="#work" class="btn">View My Work</a>
+    <header class="hero">
+        <h1>EXPERT <span>HOME TUITION</span></h1>
+        <p>Dedicated Science & Mathematics Coaching Delivered Right at Your Doorstep for All Students (Classes 8th, 9th & 10th).</p>
+        <a href="#contact" class="cta-btn">Book 2-Day FREE Trial</a>
     </header>
 
-    <!-- Portfolio Work Section -->
-    <section id="work">
-        <h2 class="section-title">Selected Projects</h2>
-        <div class="portfolio-grid">
-            
-            <!-- Project 1 -->
-            <div class="portfolio-card">
-                <div class="portfolio-preview">
-                    <span>[ Video / Reel Preview ]</span>
-                </div>
-                <div class="portfolio-info">
-                    <h3>Cinematic Video Edit</h3>
-                    <p>Dynamic pacing, sound design, and custom color grading.</p>
-                </div>
+    <!-- Why Choose Home Tuition -->
+    <section id="why-us">
+        <h2 class="section-title">Why Choose Home Tuition Over Online Apps?</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>🚫 Zero Mobile Phone Distractions</h3>
+                <p>Keep your child away from screens, games, and social media during crucial preparation years.</p>
             </div>
-
-            <!-- Project 2 -->
-            <div class="portfolio-card">
-                <div class="portfolio-preview">
-                    <span>[ Photo Edit Preview ]</span>
-                </div>
-                <div class="portfolio-info">
-                    <h3>Creative Photo Retouch</h3>
-                    <p>Advanced lighting manipulation, color enhancement, and composition.</p>
-                </div>
+            <div class="card">
+                <h3>🎯 100% Personal Attention</h3>
+                <p>Unlike crowded coaching centers or mass online batches, every minute is dedicated entirely to your child.</p>
             </div>
-
-            <!-- Project 3 -->
-            <div class="portfolio-card">
-                <div class="portfolio-preview">
-                    <span>[ Motion Graphic Preview ]</span>
-                </div>
-                <div class="portfolio-info">
-                    <h3>Motion Graphics & Effects</h3>
-                    <p>Custom typography glows, seamless transitions, and visual FX.</p>
-                </div>
+            <div class="card">
+                <h3>📝 Daily Notebook & Homework Audit</h3>
+                <p>Written answer practice checked line-by-line in front of every student.</p>
             </div>
-
+            <div class="card">
+                <h3>🧠 Deep Concept Building</h3>
+                <p>Special focus on Physics, Chemistry, Biology, and Mathematics to build a strong foundation for higher studies.</p>
+            </div>
+            <div class="card">
+                <h3>🏡 Comfort & Safety of Home</h3>
+                <p>Save daily travel time and monitor your child's learning environment directly.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2>Let's Create Something Great</h2>
-        <p>Have a project in mind or looking for editing collaboration?</p>
-        <a href="mailto:your-email@example.com" class="btn">Get in Touch</a>
+    <!-- Subjects & Classes Covered -->
+    <section id="courses">
+        <h2 class="section-title">Subjects & Classes Covered</h2>
+        <div class="details-box">
+            <ul class="details-list">
+                <li><strong>Classes:</strong> Class 8th | Class 9th | Class 10th</li>
+                <li><strong>Boards:</strong> All Boards Covered (CBSE / SEBA / State Boards)</li>
+                <li><strong>Core Subjects:</strong> Mathematics & Science (Physics | Chemistry | Biology)</li>
+                <li><strong>Availability:</strong> Limited Slots Available (To Maintain Quality)</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact & Offer Section -->
+    <section class="contact-section" id="contact">
+        <h2 style="color: var(--accent-gold); margin-bottom: 0.5rem;">SPECIAL OFFER</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 1.5rem;"><strong>2-Day FREE Trial</strong> to gain subject clarity before committing.</p>
+        
+        <div class="contact-info">
+            <p><strong>Teacher / Mentor:</strong> Pramangsu Acharjee</p>
+            <p><strong>Location / Coverage:</strong> All major areas across Lanka</p>
+            <p><strong>Call / WhatsApp:</strong> +91 6001299901</p>
+        </div>
+
+        <a href="https://wa.me/916001299901?text=Hello%20Pramangsu,%20I%20would%20like%20to%20book%20a%202-Day%20FREE%20Trial%20class%20for%20Lumina%20Learn." class="cta-btn" target="_blank">Book Trial via WhatsApp</a>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 All Rights Reserved.</p>
+        <p>&copy; 2026 Lumina Learn — Expert Home Tuition. All Rights Reserved.</p>
     </footer>
 
 </body>
