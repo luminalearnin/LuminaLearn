@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumina Learn — Home Tuition for Classes 8th, 9th & 10th</title>
+    <title>Lumina Learn — Expert Home Tuition</title>
     <style>
         :root {
             --bg-color: #0b132b;
             --card-bg: #1c2541;
             --accent-gold: #ffc107;
             --accent-cyan: #00f2fe;
+            --accent-green: #00e676;
             --text-light: #ffffff;
             --text-muted: #d1d5db;
         }
@@ -38,7 +39,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Header / Navbar */
+        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -112,6 +113,8 @@
             border-radius: 30px;
             text-decoration: none;
             font-size: 1.05rem;
+            border: none;
+            cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
@@ -162,28 +165,141 @@
             font-size: 0.95rem;
         }
 
-        /* Classes & Subjects Section */
-        .details-box {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 2.5rem;
-            max-width: 800px;
+        /* Payment & Membership Pricing Section */
+        .pricing-section {
+            background: #111a36;
+            border-radius: 16px;
+            padding: 3.5rem 2rem;
+            margin: 2rem 5%;
+            border: 1px solid rgba(0, 242, 254, 0.2);
+        }
+
+        .trial-banner {
+            background: rgba(0, 230, 118, 0.1);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
+            font-weight: 600;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
             margin: 0 auto;
+        }
+
+        .price-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
         }
 
-        .details-list {
-            list-style: none;
+        .price-card.popular {
+            border: 2px solid var(--accent-gold);
         }
 
-        .details-list li {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 1.05rem;
+        .badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--accent-gold);
+            color: #000;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 800;
         }
 
-        .details-list li strong {
+        .price-card h3 {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-amount {
+            font-size: 2rem;
             color: var(--accent-gold);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .price-amount span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: normal;
+        }
+
+        .price-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-features li {
+            padding: 0.4rem 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .price-features li::before {
+            content: "✓ ";
+            color: var(--accent-cyan);
+            font-weight: bold;
+        }
+
+        /* Checkout / Payment Modal Simulation */
+        .payment-box {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 3rem auto 0 auto;
+            border: 1px dashed var(--accent-cyan);
+        }
+
+        .payment-box h3 {
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: #0b132b;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .payment-note {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            text-align: center;
         }
 
         /* Contact Section */
@@ -233,8 +349,8 @@
         <div class="logo">LUMINA <span>LEARN</span></div>
         <ul class="nav-links">
             <li><a href="#why-us">Why Us</a></li>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#contact">Book Trial</a></li>
+            <li><a href="#plans">Plans & Trial</a></li>
+            <li><a href="#checkout">Reserve Trial</a></li>
         </ul>
     </nav>
 
@@ -242,7 +358,7 @@
     <header class="hero">
         <h1>EXPERT <span>HOME TUITION</span></h1>
         <p>Dedicated Science & Mathematics Coaching Delivered Right at Your Doorstep for All Students (Classes 8th, 9th & 10th).</p>
-        <a href="#contact" class="cta-btn">Book 2-Day FREE Trial</a>
+        <a href="#checkout" class="cta-btn">Start 2-Day Trial for ₹2 (Refundable)</a>
     </header>
 
     <!-- Why Choose Home Tuition -->
@@ -272,31 +388,93 @@
         </div>
     </section>
 
-    <!-- Subjects & Classes Covered -->
-    <section id="courses">
-        <h2 class="section-title">Subjects & Classes Covered</h2>
-        <div class="details-box">
-            <ul class="details-list">
-                <li><strong>Classes:</strong> Class 8th | Class 9th | Class 10th</li>
-                <li><strong>Boards:</strong> All Boards Covered (CBSE / SEBA / State Boards)</li>
-                <li><strong>Core Subjects:</strong> Mathematics & Science (Physics | Chemistry | Biology)</li>
-                <li><strong>Availability:</strong> Limited Slots Available (To Maintain Quality)</li>
-            </ul>
+    <!-- Pricing & Automatic Trial Section -->
+    <section id="plans" class="pricing-section">
+        <h2 class="section-title">Select Your Class & Trial Plan</h2>
+        
+        <div class="trial-banner">
+            💳 <strong>Instant Auto-Verification:</strong> Pay ₹2 to reserve your slot. The ₹2 will be automatically refunded to your UPI/Account within 2 hours!
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Class 8 -->
+            <div class="price-card">
+                <h3>Class 8th</h3>
+                <div class="price-amount">2-Day Free Trial <span>(₹2 Verification)</span></div>
+                <ul class="price-features">
+                    <li>Mathematics & Science Coaching</li>
+                    <li>2-Day In-Person / Home Trial</li>
+                    <li>Notebook & Homework Inspection</li>
+                    <li>Auto-reminder via WhatsApp after 2 days</li>
+                </ul>
+                <a href="#checkout" class="cta-btn">Select Class 8</a>
+            </div>
+
+            <!-- Class 9 -->
+            <div class="price-card popular">
+                <div class="badge">MOST POPULAR</div>
+                <h3>Class 9th</h3>
+                <div class="price-amount">2-Day Free Trial <span>(₹2 Verification)</span></div>
+                <ul class="price-features">
+                    <li>Mathematics & Physics/Chem/Bio</li>
+                    <li>2-Day In-Person / Home Trial</li>
+                    <li>Line-by-Line Answer Practice</li>
+                    <li>Auto-reminder via WhatsApp after 2 days</li>
+                </ul>
+                <a href="#checkout" class="cta-btn">Select Class 9</a>
+            </div>
+
+            <!-- Class 10 -->
+            <div class="price-card">
+                <h3>Class 10th</h3>
+                <div class="price-amount">2-Day Free Trial <span>(₹2 Verification)</span></div>
+                <ul class="price-features">
+                    <li>Board Exam Focused Preparation</li>
+                    <li>2-Day In-Person / Home Trial</li>
+                    <li>Daily Numerical & Concept Audits</li>
+                    <li>Auto-reminder via WhatsApp after 2 days</li>
+                </ul>
+                <a href="#checkout" class="cta-btn">Select Class 10</a>
+            </div>
+        </div>
+
+        <!-- Checkout / Verification Form -->
+        <div class="payment-box" id="checkout">
+            <h3>🔒 Activate 2-Day Trial Membership</h3>
+            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Redirecting to secure UPI Gateway for ₹2 refundable verification...');">
+                <div class="form-group">
+                    <label>Student / Parent Name</label>
+                    <input type="text" placeholder="Enter full name" required>
+                </div>
+                <div class="form-group">
+                    <label>WhatsApp / Phone Number (for Trial Expiry Notice)</label>
+                    <input type="tel" placeholder="+91 6001299901" required>
+                </div>
+                <div class="form-group">
+                    <label>Select Class</label>
+                    <select required>
+                        <option value="">-- Select Class --</option>
+                        <option value="8">Class 8th</option>
+                        <option value="9">Class 9th</option>
+                        <option value="10">Class 10th</option>
+                    </select>
+                </div>
+                <button type="submit" class="cta-btn" style="width: 100%;">Pay ₹2 & Start Trial</button>
+            </form>
+            <p class="payment-note">
+                ℹ️ <strong>How it works:</strong> Paying ₹2 verifies your phone number and reserves your slot. The ₹2 is refunded within 2 hours. After 2 days, your trial expires, and you will receive a notification via WhatsApp/Email to confirm monthly enrollment.
+            </p>
         </div>
     </section>
 
-    <!-- Contact & Offer Section -->
+    <!-- Contact Info -->
     <section class="contact-section" id="contact">
-        <h2 style="color: var(--accent-gold); margin-bottom: 0.5rem;">SPECIAL OFFER</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 1.5rem;"><strong>2-Day FREE Trial</strong> to gain subject clarity before committing.</p>
-        
+        <h2 style="color: var(--accent-gold); margin-bottom: 0.5rem;">DIRECT CONTACT</h2>
         <div class="contact-info">
             <p><strong>Teacher / Mentor:</strong> Pramangsu Acharjee</p>
             <p><strong>Location / Coverage:</strong> All major areas across Lanka</p>
             <p><strong>Call / WhatsApp:</strong> +91 6001299901</p>
         </div>
-
-        <a href="https://wa.me/916001299901?text=Hello%20Pramangsu,%20I%20would%20like%20to%20book%20a%202-Day%20FREE%20Trial%20class%20for%20Lumina%20Learn." class="cta-btn" target="_blank">Book Trial via WhatsApp</a>
     </section>
 
     <!-- Footer -->
