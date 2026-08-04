@@ -1,2 +1,0 @@
-# LuminaLearn
-Premium Educational Platform
