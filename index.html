@@ -3,484 +3,446 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumina Learn — Expert Home Tuition</title>
+    <title>VANCURA GENÈVE | Swiss-Inspired Timepieces</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0b132b;
-            --card-bg: #1c2541;
-            --accent-gold: #ffc107;
-            --accent-cyan: #00f2fe;
-            --accent-green: #00e676;
-            --text-light: #ffffff;
-            --text-muted: #d1d5db;
+            --bg-dark: #0a0c10;
+            --card-bg: #12161f;
+            --accent-gold: #d4af37;
+            --accent-rose: #e0a96d;
+            --text-main: #f0f4f8;
+            --text-muted: #8a99ad;
+            --border-color: rgba(212, 175, 55, 0.2);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-light);
-            line-height: 1.6;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
         }
 
-        /* Top Announcement Banner */
-        .announcement {
-            background: linear-gradient(90deg, #ff9900, #ff5500);
-            color: #000;
-            font-weight: 700;
-            text-align: center;
-            padding: 0.6rem 1rem;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-        }
-
-        /* Navigation */
-        nav {
+        /* HEADER */
+        header {
+            padding: 2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 5%;
-            background: rgba(11, 19, 43, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(10, 12, 16, 0.95);
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .logo {
-            font-size: 1.6rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            color: var(--accent-cyan);
+            text-align: center;
+        }
+
+        .logo h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            letter-spacing: 6px;
+            color: var(--text-main);
+            font-weight: 700;
         }
 
         .logo span {
+            display: block;
+            font-size: 0.65rem;
+            letter-spacing: 4px;
             color: var(--accent-gold);
+            margin-top: 2px;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-gold);
-        }
-
-        /* Hero Section */
+        /* HERO SECTION */
         .hero {
-            padding: 4rem 5%;
+            padding: 5rem 5% 3rem;
             text-align: center;
-            background: radial-gradient(circle at center, #1c2541 0%, #0b132b 100%);
+            background: radial-gradient(circle at center, #171d29 0%, var(--bg-dark) 70%);
         }
 
-        .hero h1 {
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border: 1px solid var(--accent-gold);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero h2 {
+            font-family: 'Cinzel', serif;
             font-size: 2.8rem;
             margin-bottom: 1rem;
-            color: var(--text-light);
-        }
-
-        .hero h1 span {
-            color: var(--accent-gold);
+            font-weight: 400;
+            letter-spacing: 2px;
         }
 
         .hero p {
-            font-size: 1.2rem;
             color: var(--text-muted);
-            max-width: 750px;
+            max-width: 600px;
             margin: 0 auto 2rem;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
-        .cta-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent-gold), #ff9100);
-            color: #000;
-            font-weight: 700;
-            padding: 0.9rem 2.2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 1.05rem;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
-        }
-
-        /* Sections General */
-        section {
-            padding: 4rem 5%;
+        /* PRODUCT GRID */
+        .products-section {
+            padding: 3rem 5% 6rem;
+            max-width: 1300px;
+            margin: 0 auto;
         }
 
         .section-title {
+            font-family: 'Cinzel', serif;
             text-align: center;
             font-size: 2rem;
-            margin-bottom: 2.5rem;
-            color: var(--accent-cyan);
+            margin-bottom: 3rem;
+            letter-spacing: 3px;
         }
 
-        /* Features / Why Choose Us Grid */
-        .grid-container {
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            gap: 2.5rem;
         }
 
         .card {
             background-color: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            color: var(--accent-gold);
-            margin-bottom: 0.8rem;
-            font-size: 1.25rem;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Payment & Membership Pricing Section */
-        .pricing-section {
-            background: #111a36;
-            border-radius: 16px;
-            padding: 3.5rem 2rem;
-            margin: 2rem 5%;
-            border: 1px solid rgba(0, 242, 254, 0.2);
-        }
-
-        .trial-banner {
-            background: rgba(0, 230, 118, 0.1);
-            border: 1px solid var(--accent-green);
-            color: var(--accent-green);
-            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 8px;
+            padding: 1.5rem;
             text-align: center;
-            max-width: 700px;
-            margin: 0 auto 2.5rem auto;
-            font-weight: 600;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .price-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            position: relative;
         }
 
-        .price-card.popular {
-            border: 2px solid var(--accent-gold);
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .badge {
-            position: absolute;
-            top: -12px;
-            right: 20px;
-            background: var(--accent-gold);
-            color: #000;
-            padding: 2px 10px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 800;
+        .card-img-container {
+            height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            background: rgba(0,0,0,0.2);
+            border-radius: 4px;
+            overflow: hidden;
         }
 
-        .price-card h3 {
-            font-size: 1.4rem;
-            color: var(--text-light);
+        .card-img-container img {
+            max-height: 90%;
+            max-width: 90%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.6));
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover .card-img-container img {
+            transform: scale(1.05);
+        }
+
+        .card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
+            letter-spacing: 1px;
         }
 
-        .price-amount {
-            font-size: 2rem;
-            color: var(--accent-gold);
-            font-weight: 800;
+        .card-subtitle {
+            color: var(--text-muted);
+            font-size: 0.8rem;
             margin-bottom: 1rem;
         }
 
-        .price-amount span {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: normal;
-        }
-
-        .price-features {
-            list-style: none;
+        .card-price {
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            font-weight: 600;
             margin-bottom: 1.5rem;
         }
 
-        .price-features li {
-            padding: 0.4rem 0;
+        .card-price span {
+            font-size: 0.9rem;
             color: var(--text-muted);
-            font-size: 0.95rem;
+            text-decoration: line-through;
+            margin-left: 8px;
         }
 
-        .price-features li::before {
-            content: "✓ ";
-            color: var(--accent-cyan);
-            font-weight: bold;
+        .btn-preorder {
+            background: transparent;
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+            padding: 12px 24px;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-weight: 600;
         }
 
-        /* Checkout / Payment Modal Simulation */
-        .payment-box {
+        .btn-preorder:hover {
+            background: var(--accent-gold);
+            color: var(--bg-dark);
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
             background: var(--card-bg);
-            border-radius: 12px;
-            padding: 2rem;
-            max-width: 600px;
-            margin: 3rem auto 0 auto;
-            border: 1px dashed var(--accent-cyan);
+            border: 1px solid var(--accent-gold);
+            padding: 2.5rem;
+            width: 90%;
+            max-width: 450px;
+            border-radius: 8px;
+            position: relative;
         }
 
-        .payment-box h3 {
-            color: var(--accent-cyan);
-            margin-bottom: 1rem;
-            text-align: center;
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .modal-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-gold);
         }
 
         .form-group {
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             text-align: left;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.4rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
         }
 
         .form-group input, .form-group select {
             width: 100%;
-            padding: 0.75rem;
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: #0b132b;
-            color: #fff;
-            font-size: 1rem;
-        }
-
-        .payment-note {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            margin-top: 1rem;
-            text-align: center;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            text-align: center;
-            background: linear-gradient(180deg, var(--bg-color) 0%, var(--card-bg) 100%);
-            border-radius: 16px;
-            margin: 2rem 5%;
-            padding: 3.5rem 2rem;
-        }
-
-        .contact-info {
-            margin: 1.5rem 0;
-            font-size: 1.1rem;
-        }
-
-        .contact-info p {
-            margin: 0.5rem 0;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-muted);
+            padding: 10px;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 4px;
             font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Responsive Mobile Styling */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .nav-links { gap: 1rem; font-size: 0.9rem; }
-            section { padding: 3rem 4%; }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .btn-submit {
+            background: var(--accent-gold);
+            color: var(--bg-dark);
+            border: none;
+            padding: 12px;
+            width: 100%;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 3rem 5%;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Tagline -->
-    <div class="announcement">
-        NO PHONES. NO DISTRACTIONS. JUST GUARANTEED RESULTS AT HOME!
-    </div>
-
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">LUMINA <span>LEARN</span></div>
-        <ul class="nav-links">
-            <li><a href="#why-us">Why Us</a></li>
-            <li><a href="#plans">Plans & Trial</a></li>
-            <li><a href="#checkout">Reserve Trial</a></li>
-        </ul>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="hero">
-        <h1>EXPERT <span>HOME TUITION</span></h1>
-        <p>Dedicated Science & Mathematics Coaching Delivered Right at Your Doorstep for All Students (Classes 8th, 9th & 10th).</p>
-        <a href="#checkout" class="cta-btn">Start 2-Day Trial for ₹2 (Refundable)</a>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <h1>VANCURA</h1>
+            <span>GENÈVE</span>
+        </div>
     </header>
 
-    <!-- Why Choose Home Tuition -->
-    <section id="why-us">
-        <h2 class="section-title">Why Choose Home Tuition Over Online Apps?</h2>
-        <div class="grid-container">
-            <div class="card">
-                <h3>🚫 Zero Mobile Phone Distractions</h3>
-                <p>Keep your child away from screens, games, and social media during crucial preparation years.</p>
-            </div>
-            <div class="card">
-                <h3>🎯 100% Personal Attention</h3>
-                <p>Unlike crowded coaching centers or mass online batches, every minute is dedicated entirely to your child.</p>
-            </div>
-            <div class="card">
-                <h3>📝 Daily Notebook & Homework Audit</h3>
-                <p>Written answer practice checked line-by-line in front of every student.</p>
-            </div>
-            <div class="card">
-                <h3>🧠 Deep Concept Building</h3>
-                <p>Special focus on Physics, Chemistry, Biology, and Mathematics to build a strong foundation for higher studies.</p>
-            </div>
-            <div class="card">
-                <h3>🏡 Comfort & Safety of Home</h3>
-                <p>Save daily travel time and monitor your child's learning environment directly.</p>
-            </div>
-        </div>
+    <!-- HERO -->
+    <section class="hero">
+        <span class="hero-badge">Limited Genesis Collection</span>
+        <h2>Precision Meets Prestige</h2>
+        <p>Architectural geometry engineered for modern distinction. Reserve your piece from our initial limited production run.</p>
     </section>
 
-    <!-- Pricing & Automatic Trial Section -->
-    <section id="plans" class="pricing-section">
-        <h2 class="section-title">Select Your Class & Trial Plan</h2>
+    <!-- PRODUCTS -->
+    <section class="products-section">
+        <h3 class="section-title">The Initial Reserve</h3>
         
-        <div class="trial-banner">
-            💳 <strong>Instant Auto-Verification:</strong> Pay ₹2 to reserve your slot. The ₹2 will be automatically refunded to your UPI/Account within 2 hours!
+        <div class="grid">
+            
+            <!-- WATCH 1 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="1000091551.jpg" alt="Vancura Navy Sunburst">
+                </div>
+                <div>
+                    <h4 class="card-title">VANCURA Minimalist Navy</h4>
+                    <p class="card-subtitle">Rose-Gold Bezel & Embossed Blue Leather</p>
+                    <p class="card-price">₹799 <span>₹2,499</span></p>
+                </div>
+                <button class="btn-preorder" onclick="openPreorder('VANCURA Minimalist Navy (Rose-Gold)')">Reserve Piece</button>
+            </div>
+
+            <!-- WATCH 2 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="1000091550.jpg" alt="Vancura Square Tactical">
+                </div>
+                <div>
+                    <h4 class="card-title">VANCURA Monolith Navy</h4>
+                    <p class="card-subtitle">Matte Cushion Case & Gold Index Dial</p>
+                    <p class="card-price">₹699 <span>₹1,999</span></p>
+                </div>
+                <button class="btn-preorder" onclick="openPreorder('VANCURA Monolith Navy (Square)')">Reserve Piece</button>
+            </div>
+
+            <!-- WATCH 3 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="1000091549.jpg" alt="Vancura Steel Chrono">
+                </div>
+                <div>
+                    <h4 class="card-title">VANCURA Steel Chrono</h4>
+                    <p class="card-subtitle">Brushed Alloy Case & Open Date-Wheel</p>
+                    <p class="card-price">₹899 <span>₹2,999</span></p>
+                </div>
+                <button class="btn-preorder" onclick="openPreorder('VANCURA Steel Chrono')">Reserve Piece</button>
+            </div>
+
+            <!-- WATCH 4 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="1000091548.jpg" alt="Vancura Stealth Black Mesh">
+                </div>
+                <div>
+                    <h4 class="card-title">VANCURA Stealth Mesh</h4>
+                    <p class="card-subtitle">All-Black Dial & Stainless Mesh Bracelet</p>
+                    <p class="card-price">₹749 <span>₹2,299</span></p>
+                </div>
+                <button class="btn-preorder" onclick="openPreorder('VANCURA Stealth Mesh')">Reserve Piece</button>
+            </div>
+
         </div>
+    </section>
 
-        <div class="pricing-grid">
-            <!-- Class 8 -->
-            <div class="price-card">
-                <h3>Class 8th</h3>
-                <div class="price-amount">2-Day Free Trial <span>(₹2 Verification)</span></div>
-                <ul class="price-features">
-                    <li>Mathematics & Science Coaching</li>
-                    <li>2-Day In-Person / Home Trial</li>
-                    <li>Notebook & Homework Inspection</li>
-                    <li>Auto-reminder via WhatsApp after 2 days</li>
-                </ul>
-                <a href="#checkout" class="cta-btn">Select Class 8</a>
-            </div>
-
-            <!-- Class 9 -->
-            <div class="price-card popular">
-                <div class="badge">MOST POPULAR</div>
-                <h3>Class 9th</h3>
-                <div class="price-amount">2-Day Free Trial <span>(₹2 Verification)</span></div>
-                <ul class="price-features">
-                    <li>Mathematics & Physics/Chem/Bio</li>
-                    <li>2-Day In-Person / Home Trial</li>
-                    <li>Line-by-Line Answer Practice</li>
-                    <li>Auto-reminder via WhatsApp after 2 days</li>
-                </ul>
-                <a href="#checkout" class="cta-btn">Select Class 9</a>
-            </div>
-
-            <!-- Class 10 -->
-            <div class="price-card">
-                <h3>Class 10th</h3>
-                <div class="price-amount">2-Day Free Trial <span>(₹2 Verification)</span></div>
-                <ul class="price-features">
-                    <li>Board Exam Focused Preparation</li>
-                    <li>2-Day In-Person / Home Trial</li>
-                    <li>Daily Numerical & Concept Audits</li>
-                    <li>Auto-reminder via WhatsApp after 2 days</li>
-                </ul>
-                <a href="#checkout" class="cta-btn">Select Class 10</a>
-            </div>
-        </div>
-
-        <!-- Checkout / Verification Form -->
-        <div class="payment-box" id="checkout">
-            <h3>🔒 Activate 2-Day Trial Membership</h3>
-            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Redirecting to secure UPI Gateway for ₹2 refundable verification...');">
+    <!-- PRE-ORDER MODAL -->
+    <div class="modal" id="preorderModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closePreorder()">&times;</span>
+            <h3 class="modal-title">Pre-Order Reservation</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Zero upfront payment required. Reserve now to lock in launch pricing.</p>
+            
+            <form id="preorderForm" onsubmit="handlePreorder(event)">
                 <div class="form-group">
-                    <label>Student / Parent Name</label>
-                    <input type="text" placeholder="Enter full name" required>
+                    <label>Selected Watch</label>
+                    <input type="text" id="selectedWatch" readonly style="color: var(--accent-gold); font-weight: 600;">
                 </div>
                 <div class="form-group">
-                    <label>WhatsApp / Phone Number (for Trial Expiry Notice)</label>
-                    <input type="tel" placeholder="+91 6001299901" required>
+                    <label>Full Name</label>
+                    <input type="text" required placeholder="Enter your full name">
                 </div>
                 <div class="form-group">
-                    <label>Select Class</label>
-                    <select required>
-                        <option value="">-- Select Class --</option>
-                        <option value="8">Class 8th</option>
-                        <option value="9">Class 9th</option>
-                        <option value="10">Class 10th</option>
-                    </select>
+                    <label>WhatsApp / Phone Number</label>
+                    <input type="tel" required placeholder="Enter phone number">
                 </div>
-                <button type="submit" class="cta-btn" style="width: 100%;">Pay ₹2 & Start Trial</button>
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" required placeholder="Enter your city">
+                </div>
+                <button type="submit" class="btn-submit">Confirm Reservation</button>
             </form>
-            <p class="payment-note">
-                ℹ️ <strong>How it works:</strong> Paying ₹2 verifies your phone number and reserves your slot. The ₹2 is refunded within 2 hours. After 2 days, your trial expires, and you will receive a notification via WhatsApp/Email to confirm monthly enrollment.
-            </p>
         </div>
-    </section>
+    </div>
 
-    <!-- Contact Info -->
-    <section class="contact-section" id="contact">
-        <h2 style="color: var(--accent-gold); margin-bottom: 0.5rem;">DIRECT CONTACT</h2>
-        <div class="contact-info">
-            <p><strong>Teacher / Mentor:</strong> Pramangsu Acharjee</p>
-            <p><strong>Location / Coverage:</strong> All major areas across Lanka</p>
-            <p><strong>Call / WhatsApp:</strong> +91 6001299901</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Lumina Learn — Expert Home Tuition. All Rights Reserved.</p>
+        <div class="logo">
+            <h1 style="font-size: 1.2rem;">VANCURA</h1>
+            <span style="font-size: 0.5rem;">GENÈVE</span>
+        </div>
+        <p>&copy; 2026 VANCURA Horlogerie. All rights reserved.</p>
     </footer>
 
+    <!-- JAVASCRIPT -->
+    <script>
+        function openPreorder(watchName) {
+            document.getElementById('selectedWatch').value = watchName;
+            document.getElementById('preorderModal').style.display = 'flex';
+        }
+
+        function closePreorder() {
+            document.getElementById('preorderModal').style.display = 'none';
+        }
+
+        function handlePreorder(e) {
+            e.preventDefault();
+            alert("Reservation received! We will contact you via WhatsApp as soon as stock is ready for dispatch.");
+            closePreorder();
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            let modal = document.getElementById('preorderModal');
+            if (event.target == modal) {
+                closePreorder();
+            }
+        }
+    </script>
 </body>
 </html>
