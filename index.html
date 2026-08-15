@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VANCURA GENÈVE | Swiss-Inspired Timepieces</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-dark: #0a0c10;
             --card-bg: #12161f;
             --accent-gold: #d4af37;
-            --accent-rose: #e0a96d;
+            --accent-green: #2ecc71;
             --text-main: #f0f4f8;
             --text-muted: #8a99ad;
             --border-color: rgba(212, 175, 55, 0.2);
@@ -45,6 +45,7 @@
 
         .logo {
             text-align: center;
+            width: 100%;
         }
 
         .logo h1 {
@@ -65,7 +66,7 @@
 
         /* HERO SECTION */
         .hero {
-            padding: 5rem 5% 3rem;
+            padding: 4rem 5% 2rem;
             text-align: center;
             background: radial-gradient(circle at center, #171d29 0%, var(--bg-dark) 70%);
         }
@@ -84,7 +85,7 @@
 
         .hero h2 {
             font-family: 'Cinzel', serif;
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             font-weight: 400;
             letter-spacing: 2px;
@@ -94,13 +95,13 @@
             color: var(--text-muted);
             max-width: 600px;
             margin: 0 auto 2rem;
-            font-size: 1rem;
+            font-size: 0.95rem;
             line-height: 1.6;
         }
 
         /* PRODUCT GRID */
         .products-section {
-            padding: 3rem 5% 6rem;
+            padding: 2rem 5% 6rem;
             max-width: 1300px;
             margin: 0 auto;
         }
@@ -108,7 +109,7 @@
         .section-title {
             font-family: 'Cinzel', serif;
             text-align: center;
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 3rem;
             letter-spacing: 3px;
         }
@@ -138,20 +139,35 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
+        .discount-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-gold);
+            color: var(--bg-dark);
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
         .card-img-container {
             height: 260px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 1.5rem;
-            background: rgba(0,0,0,0.2);
-            border-radius: 4px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 6px;
             overflow: hidden;
+            position: relative;
         }
 
         .card-img-container img {
-            max-height: 90%;
-            max-width: 90%;
+            max-height: 85%;
+            max-width: 85%;
             object-fit: contain;
             filter: drop-shadow(0 10px 15px rgba(0,0,0,0.6));
             transition: transform 0.4s ease;
@@ -163,8 +179,8 @@
 
         .card-title {
             font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+            margin-bottom: 0.4rem;
             letter-spacing: 1px;
         }
 
@@ -174,18 +190,31 @@
             margin-bottom: 1rem;
         }
 
+        .price-container {
+            margin-bottom: 0.5rem;
+        }
+
         .card-price {
-            font-size: 1.3rem;
-            color: var(--accent-gold);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            color: var(--text-main);
+            font-weight: 700;
         }
 
         .card-price span {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
             text-decoration: line-through;
             margin-left: 8px;
+            font-weight: 400;
+        }
+
+        .savings-tag {
+            display: block;
+            color: var(--accent-green);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.5px;
         }
 
         .btn-preorder {
@@ -200,6 +229,7 @@
             width: 100%;
             transition: all 0.3s ease;
             font-weight: 600;
+            border-radius: 4px;
         }
 
         .btn-preorder:hover {
@@ -243,7 +273,7 @@
 
         .modal-title {
             font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 0.5rem;
             color: var(--accent-gold);
         }
@@ -261,7 +291,7 @@
             letter-spacing: 1px;
         }
 
-        .form-group input, .form-group select {
+        .form-group input {
             width: 100%;
             padding: 10px;
             background: rgba(0,0,0,0.4);
@@ -287,6 +317,7 @@
             text-transform: uppercase;
             cursor: pointer;
             margin-top: 1rem;
+            border-radius: 4px;
         }
 
         /* FOOTER */
@@ -296,10 +327,6 @@
             text-align: center;
             color: var(--text-muted);
             font-size: 0.8rem;
-        }
-
-        footer p {
-            margin-top: 10px;
         }
     </style>
 </head>
@@ -315,9 +342,9 @@
 
     <!-- HERO -->
     <section class="hero">
-        <span class="hero-badge">Limited Genesis Collection</span>
+        <span class="hero-badge">Genesis Collection Launch</span>
         <h2>Precision Meets Prestige</h2>
-        <p>Architectural geometry engineered for modern distinction. Reserve your piece from our initial limited production run.</p>
+        <p>Architectural geometry engineered for modern distinction. Lock in exclusive launch pricing before public release.</p>
     </section>
 
     <!-- PRODUCTS -->
@@ -328,52 +355,68 @@
             
             <!-- WATCH 1 -->
             <div class="card">
+                <span class="discount-badge">68.03% OFF</span>
                 <div class="card-img-container">
-                    <img src="1000091551.jpg" alt="Vancura Navy Sunburst">
+                    <img src="1000091551.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\' viewBox=\'0 0 200 200\'><rect width=\'100%\' height=\'100%\' fill=\'%231a212d\'/><circle cx=\'100\' cy=\'100\' r=\'60\' stroke=\'%23e0a96d\' stroke-width=\'4\' fill=\'none\'/><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'12\'>[ Image 1000091551 ]</text></svg>'" alt="Vancura Navy Sunburst">
                 </div>
                 <div>
                     <h4 class="card-title">VANCURA Minimalist Navy</h4>
                     <p class="card-subtitle">Rose-Gold Bezel & Embossed Blue Leather</p>
-                    <p class="card-price">₹799 <span>₹2,499</span></p>
+                    <div class="price-container">
+                        <p class="card-price">₹799 <span>₹2,499</span></p>
+                        <span class="savings-tag">You Save ₹1,700 (68.03% OFF)</span>
+                    </div>
                 </div>
-                <button class="btn-preorder" onclick="openPreorder('VANCURA Minimalist Navy (Rose-Gold)')">Reserve Piece</button>
+                <button class="btn-preorder" onclick="openPreorder('VANCURA Minimalist Navy')">Reserve Piece</button>
             </div>
 
             <!-- WATCH 2 -->
             <div class="card">
+                <span class="discount-badge">65.03% OFF</span>
                 <div class="card-img-container">
-                    <img src="1000091550.jpg" alt="Vancura Square Tactical">
+                    <img src="1000091550.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\' viewBox=\'0 0 200 200\'><rect width=\'100%\' height=\'100%\' fill=\'%231a212d\'/><rect x=\'50\' y=\'50\' width=\'100\' height=\'100\' rx=\'20\' stroke=\'%23d4af37\' stroke-width=\'4\' fill=\'none\'/><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'12\'>[ Image 1000091550 ]</text></svg>'" alt="Vancura Square Tactical">
                 </div>
                 <div>
                     <h4 class="card-title">VANCURA Monolith Navy</h4>
                     <p class="card-subtitle">Matte Cushion Case & Gold Index Dial</p>
-                    <p class="card-price">₹699 <span>₹1,999</span></p>
+                    <div class="price-container">
+                        <p class="card-price">₹699 <span>₹1,999</span></p>
+                        <span class="savings-tag">You Save ₹1,300 (65.03% OFF)</span>
+                    </div>
                 </div>
-                <button class="btn-preorder" onclick="openPreorder('VANCURA Monolith Navy (Square)')">Reserve Piece</button>
+                <button class="btn-preorder" onclick="openPreorder('VANCURA Monolith Navy')">Reserve Piece</button>
             </div>
 
             <!-- WATCH 3 -->
             <div class="card">
+                <span class="discount-badge">69.99% OFF</span>
                 <div class="card-img-container">
-                    <img src="1000091549.jpg" alt="Vancura Steel Chrono">
+                    <img src="1000091549.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\' viewBox=\'0 0 200 200\'><rect width=\'100%\' height=\'100%\' fill=\'%231a212d\'/><circle cx=\'100\' cy=\'100\' r=\'65\' stroke=\'%238a99ad\' stroke-width=\'4\' fill=\'none\'/><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'12\'>[ Image 1000091549 ]</text></svg>'" alt="Vancura Steel Chrono">
                 </div>
                 <div>
                     <h4 class="card-title">VANCURA Steel Chrono</h4>
                     <p class="card-subtitle">Brushed Alloy Case & Open Date-Wheel</p>
-                    <p class="card-price">₹899 <span>₹2,999</span></p>
+                    <div class="price-container">
+                        <p class="card-price">₹899 <span>₹2,999</span></p>
+                        <span class="savings-tag">You Save ₹2,100 (69.99% OFF)</span>
+                    </div>
                 </div>
                 <button class="btn-preorder" onclick="openPreorder('VANCURA Steel Chrono')">Reserve Piece</button>
             </div>
 
             <!-- WATCH 4 -->
             <div class="card">
+                <span class="discount-badge">67.42% OFF</span>
                 <div class="card-img-container">
-                    <img src="1000091548.jpg" alt="Vancura Stealth Black Mesh">
+                    <img src="1000091548.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\' viewBox=\'0 0 200 200\'><rect width=\'100%\' height=\'100%\' fill=\'%231a212d\'/><circle cx=\'100\' cy=\'100\' r=\'60\' stroke=\'%23333333\' stroke-width=\'6\' fill=\'none\'/><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'12\'>[ Image 1000091548 ]</text></svg>'" alt="Vancura Stealth Black Mesh">
                 </div>
                 <div>
                     <h4 class="card-title">VANCURA Stealth Mesh</h4>
                     <p class="card-subtitle">All-Black Dial & Stainless Mesh Bracelet</p>
-                    <p class="card-price">₹749 <span>₹2,299</span></p>
+                    <div class="price-container">
+                        <p class="card-price">₹749 <span>₹2,299</span></p>
+                        <span class="savings-tag">You Save ₹1,550 (67.42% OFF)</span>
+                    </div>
                 </div>
                 <button class="btn-preorder" onclick="openPreorder('VANCURA Stealth Mesh')">Reserve Piece</button>
             </div>
@@ -416,7 +459,7 @@
             <h1 style="font-size: 1.2rem;">VANCURA</h1>
             <span style="font-size: 0.5rem;">GENÈVE</span>
         </div>
-        <p>&copy; 2026 VANCURA Horlogerie. All rights reserved.</p>
+        <p style="margin-top: 10px;">&copy; 2026 VANCURA Horlogerie. All rights reserved.</p>
     </footer>
 
     <!-- JAVASCRIPT -->
@@ -436,7 +479,6 @@
             closePreorder();
         }
 
-        // Close modal on outside click
         window.onclick = function(event) {
             let modal = document.getElementById('preorderModal');
             if (event.target == modal) {
